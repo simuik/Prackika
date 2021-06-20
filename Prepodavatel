@@ -1,0 +1,19 @@
+public class Prepodavatel {
+    public String name;
+    public String familiya;
+    public String otshestvo;
+    public String gender;
+    public int age;
+    public String stepen;
+    public int stazh;
+    public String dolzhnost;
+    public void printPrepodavatel(){
+        System.out.println("ПРЕПОДАВАТЕЛЬ КАФЕДРЫ:");
+        System.out.println("Фио:"+" "+familiya+" "+name+" "+otshestvo);
+        System.out.println("Пол:"+gender);
+        System.out.println("Возраст:"+age);
+        System.out.println("Административная должность:"+dolzhnost);
+        System.out.println("Стаж работы:"+stazh);
+        System.out.println("Ученая степень:"+stepen);
+    }
+}
