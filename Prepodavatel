@@ -1,12 +1,82 @@
+public class Main {
+    public static void main(String[] args) {
+        Prepodavatel e1 = new Prepodavatel();
+
+        e1.setFamiliya("Злобин");
+        e1.setName("Евгений");
+        e1.setOtshestvo("Валентинович");
+        e1.setGender("Мужской");
+        e1.setAge(38);
+        e1.setDolzhnost("Доцент");
+        e1.setStazh(13);
+        e1.setStepen("Кандитант исторических наук");
+        e1.printPrepodavatel();
+        Disciplins d1 = new Disciplins();
+        d1.setNaim("История");
+        d1.setKolvochasov(16);
+        d1.setNumber(3002);
+        d1.printDisciplins();
+    }
+}
+
 public class Prepodavatel {
-    public String name;
-    public String familiya;
-    public String otshestvo;
-    public String gender;
-    public int age;
-    public String stepen;
-    public int stazh;
-    public String dolzhnost;
+    private String name;
+    private String familiya;
+    private String otshestvo;
+    private String gender;
+    private int age;
+    private String stepen;
+    private int stazh;
+    private String dolzhnost;
+
+    public String getName(){
+        return name;
+    }
+    public String getFamiliya(){
+        return familiya;
+    }
+    public String getOtshestvo(){
+        return otshestvo;
+    }
+    public String getGender(){
+        return gender;
+    }
+    public int getAge(){
+        return age;
+    }
+    public String getStepen(){
+        return stepen;
+    }
+    public int getStazh(){
+        return stazh;
+    }
+    public String getDolzhnost(){
+        return dolzhnost;
+    }
+    public void setName(String newname) {
+        name = newname;
+    }
+    public void setFamiliya(String newfamiliya){
+        familiya = newfamiliya;
+    }
+    public void setOtshestvo(String newotshestvo){
+        otshestvo = newotshestvo;
+    }
+    public void setGender(String newgender){
+        gender = newgender;
+    }
+    public void setAge(int newage){
+        age = newage;
+    }
+    public void setStepen(String newstepen){
+        stepen = newstepen;
+    }
+    public void setStazh(int newstazh){
+        stazh = newstazh;
+    }
+    public void setDolzhnost(String newdolzhnost){
+        dolzhnost = newdolzhnost;
+    }
     public void printPrepodavatel(){
         System.out.println("ПРЕПОДАВАТЕЛЬ КАФЕДРЫ:");
         System.out.println("Фио:"+" "+familiya+" "+name+" "+otshestvo);
@@ -15,5 +85,36 @@ public class Prepodavatel {
         System.out.println("Административная должность:"+dolzhnost);
         System.out.println("Стаж работы:"+stazh);
         System.out.println("Ученая степень:"+stepen);
+    }
+}
+
+public class Disciplins {
+    private String naim;
+    private int kolvochasov;
+    private int number;
+
+    public String getNaim(){
+        return naim;
+    }
+    public int getKolvochasov(){
+        return kolvochasov;
+    }
+    public int getNumber(){
+        return number;
+    }
+    public void setNaim(String newnaim){
+        naim = newnaim;
+    }
+    public void setKolvochasov(int newkolvochasov){
+        kolvochasov = newkolvochasov;
+    }
+    public void setNumber(int newnumber){
+        number = newnumber;
+    }
+    public void printDisciplins() {
+        System.out.println("УЧЕБНЫЕ ДИСЦИПЛИНЫ");
+        System.out.println("Количество часов:" + kolvochasov);
+        System.out.println("Наименование дисциплины:" + naim);
+        System.out.println("Номер группы:" + number);
     }
 }
