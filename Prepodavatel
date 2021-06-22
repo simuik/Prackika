@@ -1,25 +1,40 @@
 public class Main {
     public static void main(String[] args) {
-        Prepodavatel e1 = new Prepodavatel();
+        Prepodavatel p1 = new Prepodavatel("Евгений", "Злобин","Валентинович","мужской", 38,"доктор биологических наук",15, "профессор");
+        Prepodavatel p2 = new Prepodavatel("Александр", "Ситовский","Михайлович","мужской", 45,"кандидат биологических наук",20, "преподаватель");
+        Prepodavatel p3 = new Prepodavatel("Дмитрий", "Амалин","Алексеевич","мужской", 33,"кандидакт гуманитарных наук",10, "преподаватель");
+        Prepodavatel p4 = new Prepodavatel("Людмила", "Мулакова","Петровна","женский", 41,"доктор биологических наук",17, "декан");
+        Prepodavatel p5 = new Prepodavatel("Владимир", "Казаков","Степанович","мужской", 29,"кандидат биолигический наук",5, "аспирант");
+        Prepodavatel p6 = new Prepodavatel("Надежда", "Зыкова","Васильевна","женский", 56,"кандидат биологических наук",34, "профессор");
 
-        e1.setFamiliya("Злобин");
-        e1.setName("Евгений");
-        e1.setOtshestvo("Валентинович");
-        e1.setGender("Мужской");
-        e1.setAge(38);
-        e1.setDolzhnost("Доцент");
-        e1.setStazh(13);
-        e1.setStepen("Кандитант исторических наук");
-        e1.printPrepodavatel();
-        Disciplins d1 = new Disciplins();
-        d1.setNaim("История");
-        d1.setKolvochasov(16);
-        d1.setNumber(3002);
+        Disciplins d1 = new Disciplins("Латинский язык", 48, 3001);
+        Disciplins d2 = new Disciplins("Фармация", 70,3002);
+        Disciplins d3 = new Disciplins("Фармакология", 56,3001);
+        Disciplins d4 = new Disciplins("Фармакогнозия", 38,3001);
+        Disciplins d5 = new Disciplins("Химия", 54,3002);
+        Disciplins d6 = new Disciplins("Биотехнология", 22,3002);
+
+        p1.printPrepodavatel();
+        d6.printDisciplins();
+
+        p2.printPrepodavatel();
+        d3.printDisciplins();
+
+        p3.printPrepodavatel();
         d1.printDisciplins();
+
+        p4.printPrepodavatel();
+        d4.printDisciplins();
+
+        p5.printPrepodavatel();
+        d2.printDisciplins();
+
+        p6.printPrepodavatel();
+        d5.printDisciplins();
     }
 }
 
-public class Prepodavatel {
+class Prepodavatel {
     private String name;
     private String familiya;
     private String otshestvo;
@@ -29,53 +44,15 @@ public class Prepodavatel {
     private int stazh;
     private String dolzhnost;
 
-    public String getName(){
-        return name;
-    }
-    public String getFamiliya(){
-        return familiya;
-    }
-    public String getOtshestvo(){
-        return otshestvo;
-    }
-    public String getGender(){
-        return gender;
-    }
-    public int getAge(){
-        return age;
-    }
-    public String getStepen(){
-        return stepen;
-    }
-    public int getStazh(){
-        return stazh;
-    }
-    public String getDolzhnost(){
-        return dolzhnost;
-    }
-    public void setName(String newname) {
-        name = newname;
-    }
-    public void setFamiliya(String newfamiliya){
-        familiya = newfamiliya;
-    }
-    public void setOtshestvo(String newotshestvo){
-        otshestvo = newotshestvo;
-    }
-    public void setGender(String newgender){
-        gender = newgender;
-    }
-    public void setAge(int newage){
-        age = newage;
-    }
-    public void setStepen(String newstepen){
-        stepen = newstepen;
-    }
-    public void setStazh(int newstazh){
-        stazh = newstazh;
-    }
-    public void setDolzhnost(String newdolzhnost){
-        dolzhnost = newdolzhnost;
+    public Prepodavatel(String x, String y, String c, String v, int b, String n,int m, String a){
+        name = x;
+        familiya = y;
+        otshestvo = c;
+        gender = v;
+        age = b;
+        stepen = n;
+        stazh = m;
+        dolzhnost = a;
     }
     public void printPrepodavatel(){
         System.out.println("ПРЕПОДАВАТЕЛЬ КАФЕДРЫ:");
@@ -88,31 +65,18 @@ public class Prepodavatel {
     }
 }
 
-public class Disciplins {
+class Disciplins {
     private String naim;
     private int kolvochasov;
     private int number;
 
-    public String getNaim(){
-        return naim;
-    }
-    public int getKolvochasov(){
-        return kolvochasov;
-    }
-    public int getNumber(){
-        return number;
-    }
-    public void setNaim(String newnaim){
-        naim = newnaim;
-    }
-    public void setKolvochasov(int newkolvochasov){
-        kolvochasov = newkolvochasov;
-    }
-    public void setNumber(int newnumber){
-        number = newnumber;
+    public Disciplins(String q, int w, int e){
+        naim = q;
+        kolvochasov = w;
+        number = e;
     }
     public void printDisciplins() {
-        System.out.println("УЧЕБНЫЕ ДИСЦИПЛИНЫ");
+        System.out.println("УЧЕБНАЯ ДИСЦИПЛИНА");
         System.out.println("Количество часов:" + kolvochasov);
         System.out.println("Наименование дисциплины:" + naim);
         System.out.println("Номер группы:" + number);
