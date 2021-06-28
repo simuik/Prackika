@@ -1,36 +1,50 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) {
-        Prepodavatel p1 = new Prepodavatel("Евгений", "Злобин","Валентинович","мужской", 38,"доктор биологических наук",15, "профессор");
-        Prepodavatel p2 = new Prepodavatel("Александр", "Ситовский","Михайлович","мужской", 45,"кандидат биологических наук",20, "преподаватель");
-        Prepodavatel p3 = new Prepodavatel("Дмитрий", "Амалин","Алексеевич","мужской", 33,"кандидакт гуманитарных наук",10, "преподаватель");
-        Prepodavatel p4 = new Prepodavatel("Людмила", "Мулакова","Петровна","женский", 41,"доктор биологических наук",17, "декан");
-        Prepodavatel p5 = new Prepodavatel("Владимир", "Казаков","Степанович","мужской", 29,"кандидат биолигический наук",5, "аспирант");
-        Prepodavatel p6 = new Prepodavatel("Надежда", "Зыкова","Васильевна","женский", 56,"кандидат биологических наук",34, "профессор");
+    public static void main(String[] args) throws IOException {
+        {
 
-        Disciplins d1 = new Disciplins("Латинский язык", 48, 3001);
-        Disciplins d2 = new Disciplins("Фармация", 70,3002);
-        Disciplins d3 = new Disciplins("Фармакология", 56,3001);
-        Disciplins d4 = new Disciplins("Фармакогнозия", 38,3001);
-        Disciplins d5 = new Disciplins("Химия", 54,3002);
-        Disciplins d6 = new Disciplins("Биотехнология", 22,3002);
+            Prepodavatel p1 = new Prepodavatel("Евгений", "Злобин", "Валентинович", "мужской", 38, "доктор биологических наук", 15, "профессор");
+            Prepodavatel p2 = new Prepodavatel("Александр", "Ситовский", "Михайлович", "мужской", 45, "кандидат биологических наук", 20, "преподаватель");
+            Prepodavatel p3 = new Prepodavatel("Дмитрий", "Амалин", "Алексеевич", "мужской", 33, "кандидакт гуманитарных наук", 10, "преподаватель");
+            Prepodavatel p4 = new Prepodavatel("Людмила", "Мулакова", "Петровна", "женский", 41, "доктор биологических наук", 17, "декан");
+            Prepodavatel p5 = new Prepodavatel("Владимир", "Казаков", "Степанович", "мужской", 29, "кандидат биолигический наук", 5, "аспирант");
+            Prepodavatel p6 = new Prepodavatel("Надежда", "Зыкова", "Васильевна", "женский", 56, "кандидат биологических наук", 34, "профессор");
 
-        p1.printPrepodavatel();
-        d6.printDisciplins();
+            Disciplins d1 = new Disciplins("Латинский язык", 48, 3001, 3002, 3003);
+            Disciplins d2 = new Disciplins("Фармация", 70, 3002, 3009, 3004);
+            Disciplins d3 = new Disciplins("Фармакология", 56, 3001, 3007, 3004);
+            Disciplins d4 = new Disciplins("Фармакогнозия", 38, 3001, 3002, 3006);
+            Disciplins d5 = new Disciplins("Химия", 54, 3002, 3007, 3006);
+            Disciplins d6 = new Disciplins("Биотехнология", 22, 3002, 3004, 3007);
 
-        p2.printPrepodavatel();
-        d3.printDisciplins();
+            //p1.printPrepodavatel();
+            //d6.printDisciplins();
+            Scanner k = new Scanner(System.in);
+            System.out.println("Введите количество преподавателей(не больше 6)");
+            int kk = k.nextInt();
+            System.out.println("Количество преподавателей:" + k);
+            Scanner v = new Scanner(System.in);
+            System.out.println("Введите нужное количество ");
+            int vv = v.nextInt();
+            System.out.println("Нужное количество занятий у преподавателей:" + v);
 
-        p3.printPrepodavatel();
-        d1.printDisciplins();
+            {
+                for (int i = 0; i < kk; i++)
 
-        p4.printPrepodavatel();
-        d4.printDisciplins();
+                    p1.printPrepodavatel();
+                    d6.printDisciplins();
+            }
+            File file = new File("Xranenie");
+            PrintWriter vyuvod = new PrintWriter(file);
 
-        p5.printPrepodavatel();
-        d2.printDisciplins();
-
-        p6.printPrepodavatel();
-        d5.printDisciplins();
+            vyuvod.println("" + p1.printPrepodavatel());
+            vyuvod.println("" + d6.printDisciplins());
+                    vyuvod.close();
+        }
     }
 }
 
@@ -69,16 +83,20 @@ class Disciplins {
     private String naim;
     private int kolvochasov;
     private int number;
+    private int number1;
+    private int number2;
 
-    public Disciplins(String q, int w, int e){
+    public Disciplins(String q, int w, int e, int f,int j){
         naim = q;
         kolvochasov = w;
         number = e;
+        number1 = f;
+        number2 = j;
     }
     public void printDisciplins() {
         System.out.println("УЧЕБНАЯ ДИСЦИПЛИНА");
         System.out.println("Количество часов:" + kolvochasov);
         System.out.println("Наименование дисциплины:" + naim);
-        System.out.println("Номер группы:" + number);
+        System.out.println("Номер группы:" + number + number1 + number2);
     }
 }
